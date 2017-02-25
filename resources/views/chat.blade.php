@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
 </head>
 <body>
-    <div class="app">
+    <div id="app">
         <div class="panel panel-primary">
             <div class="panel-heading">chatbox</div>
             <div class="panel-body">
@@ -14,9 +14,9 @@
             </div>
             <div class="panel-footer">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Type Message ...">
+                    <input type="text" class="form-control" v-model="msg" placeholder="Type Message ...">
                     <div class="input-group-addon">
-                        <button type="button" class="btn btn-info btn-xs">Send</button>
+                        <button type="button" @click="sendMsg" class="btn btn-info btn-xs">Send</button>
                     </div>
                 </div>
             </div>

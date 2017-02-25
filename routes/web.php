@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/chat', 'ChatController@getChatView');
-
+Route::post('/chat', 'ChatController@postChat');

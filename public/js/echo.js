@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/ 	return __webpack_require__(__webpack_require__.s = 39);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -11004,7 +11004,7 @@ var Echo = function () {
         }
         if (this.options.broadcaster == 'pusher') {
             if (!window['Pusher']) {
-                window['Pusher'] = __webpack_require__(38);
+                window['Pusher'] = __webpack_require__(35);
             }
             this.connector = new PusherConnector(this.options);
         } else if (this.options.broadcaster == 'socket.io') {
@@ -11090,7 +11090,7 @@ module.exports = Echo;
 
 /***/ }),
 
-/***/ 38:
+/***/ 35:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -15226,7 +15226,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }),
 
-/***/ 43:
+/***/ 39:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(12);
