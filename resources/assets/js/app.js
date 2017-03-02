@@ -13,7 +13,6 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
 const app = new Vue({
     el: '#app',
     data: {
@@ -21,6 +20,21 @@ const app = new Vue({
     },
     methods: {
         sendMsg: function () {
+            if (this.msg) {
+                axios.post('chat',{
+                    message: this.msg,
+                }).then(function (response) {
+                    if (response.status.result == 'ok') {
+                        this.msg = '';
+                    }
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }else{
+                alert('type something...');
+            }
+        },
+        pushMsg: function (msg) {
             
         }
     }
