@@ -14,9 +14,9 @@ class ChatController extends Controller
 
     public function chat(Request $request)
     {
-        $msg = $request->get('msg');
-        if ($msg) {
-            broadcast(new SendMsgEvent($msg))->toOthers();
+        $message = $request->get('message');
+        if ($message) {
+            broadcast(new SendMsgEvent($message))->toOthers();
             return response()->json(['result' => 'ok'], 200);
         }
     }
