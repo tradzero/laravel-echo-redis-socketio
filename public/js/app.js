@@ -11209,7 +11209,22 @@ var app = new Vue({
         msg: ''
     },
     methods: {
-        sendMsg: function sendMsg() {}
+        sendMsg: function sendMsg() {
+            if (this.msg) {
+                axios.post('chat', {
+                    message: this.msg
+                }).then(function (response) {
+                    if (response.status.result == 'ok') {
+                        this.msg = '';
+                    }
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            } else {
+                alert('type something...');
+            }
+        },
+        pushMsg: function pushMsg(msg) {}
     }
 
 });
