@@ -5,6 +5,11 @@
     <title>chat</title>
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     <style>
+        .right > .direct-chat-text {
+            background: #3c8dbc;
+            border-color: #3c8dbc;
+            color: #fff;
+        }
         .direct-chat-text {
             border-radius: 5px;
             position: relative;
@@ -28,6 +33,13 @@
             width: 0;
             pointer-events: none;
         }
+        .right > .direct-chat-text:after,
+        .right > .direct-chat-text:before {
+            right: auto;
+            left: 100%;
+            border-right-color: transparent;
+            border-left-color: #3c8dbc;
+        }
     </style>
 </head>
 <body>
@@ -37,14 +49,14 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">chatbox</div>
                     <div class="panel-body">
-                        <div class="msg">
-                            <div class="direct-chat-text">
-                                asdf
+                        <template v-for="message in messageArray">
+                            <div class="msg" v-if="message.self">
+                                <div class="direct-chat-text">@{{ message.self }}</div>
                             </div>
-                            <div class="direct-chat-text">
-                                qwer
+                            <div class="msg right" v-if="message.other">
+                                <div class="direct-chat-text">@{{ message.other }}</div>
                             </div>
-                        </div>
+                        </template>
                     </div>
                     <div class="panel-footer">
                         <div class="input-group">
@@ -72,7 +84,9 @@
         }else{
             Echo.channel('everyone')
                 .listen('SendMsgEvent', function (e) {
-                    console.log(e);
+                    if (e.msg) {
+                        app.listenMsg(e.msg);
+                    }
                 });
         }
     </script>
