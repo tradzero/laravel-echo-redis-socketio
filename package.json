@@ -11,7 +11,7 @@
     "axios": "^0.19",
     "bootstrap-sass": "^3.3.7",
     "jquery": "^3.1.1",
-    "laravel-mix": "^4.0.15",
+    "laravel-mix": "^6.0.49",
     "lodash": "^4.17.4",
     "vue": "^2.1.10"
   },
